@@ -41,22 +41,35 @@ public class MainActivity extends AppCompatActivity {
             int numberOfTrips = Integer.parseInt(trips.getText().toString());
             double amountInCard = Double.parseDouble(startingBalanceEdit.getText().toString());
 
-            if (numberOfDays < 1 || numberOfWeeks < 1 || numberOfWeeks > 4 || numberOfTrips < 1 ||
-                    amountInCard < 0) {
+            if (!areValidNumbers(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard)) {
                 Toast.makeText(this, "Please enter valid numbers.", Toast.LENGTH_LONG).show();
             } else {
                 double totalAmount = calculateTotal(numberOfDays, numberOfWeeks, numberOfTrips,
                         amountInCard);
-                if (totalAmount <= 0){
-                    Toast.makeText(this, "Silly, you already have money!.",
+                if (totalAmount <= 0) {
+                    Toast.makeText(this, "Silly, you already have money!",
                             Toast.LENGTH_LONG).show();
+                } else if (totalAmount >= 116.5 && numberOfWeeks == 4) {
+                    totalTextView.setText("Buy a Monthly Metrocard");
+                } else if (totalAmount/numberOfWeeks >= 31){
+                    totalTextView.setText("Buy a Weekly Metrocard\n" + numberOfWeeks + " Time(s)");
                 } else {
                     DecimalFormat df = new DecimalFormat("#.00");
                     totalTextView.setText("Total: $" + df.format(totalAmount));
                 }
             }
-        } catch (NumberFormatException n){
+        } catch (NumberFormatException n) {
             Toast.makeText(this, "Please enter a value for all fields.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private boolean areValidNumbers(int numberOfDays, int numberOfWeeks, int numberOfTrips,
+                                    double amountInCard) {
+        if (numberOfDays < 1 || numberOfDays > 7 || numberOfWeeks < 1 ||
+                numberOfWeeks > 4 || numberOfTrips < 1 || amountInCard < 0) {
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -73,16 +86,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // MTA Metrocard Vending Machine only allow payments in nickel increments
-        int pennies = (int) Math.round(totalAmount*100);
+        int pennies = (int) Math.round(totalAmount * 100);
         int nickelDifference = pennies % 10 - 5;
 
-        if (nickelDifference < 0 && nickelDifference != -5){
+        if (nickelDifference < 0 && nickelDifference != -5) {
             pennies += -nickelDifference;
-        } else if (nickelDifference > 0){
+        } else if (nickelDifference > 0) {
             pennies += 5 - nickelDifference;
         }
 
-        return pennies/100.0;
+        return pennies / 100.0;
     }
 
     @Override
