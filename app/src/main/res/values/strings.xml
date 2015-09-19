@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MTA Perfect Fare</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="number_trips_text_view"># Trips</string>
+    <string name="number_days_text_view"># Days</string>
+    <string name="number_weeks_text_view"># Weeks</string>
+    <string name="trips_hint">1+</string>
+    <string name="days_hint">1+</string>
+    <string name="weeks_hint">1–4</string>
+    <string name="starting_balance_text_view">Starting Balance</string>
+    <string name="trips_description_text_view">Swipe(s)</string>
+    <string name="days_description_text_view">Time(s) per week</string>
+    <string name="weeks_description_text_view">Week(s) per month</string>
+    <string name="starting_balance_hint">0.61</string>
+    <string name="calculate_button_text_view">Calculate!</string>
+    <string name="dollar_sign">$</string>
+    <string name="total_text_view">Total: $0.00</string>
+</resources>
