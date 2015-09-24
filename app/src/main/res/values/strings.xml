@@ -10,10 +10,15 @@
     <string name="weeks_hint">1–4</string>
     <string name="starting_balance_text_view">Starting Balance</string>
     <string name="trips_description_text_view">Swipe(s)</string>
-    <string name="days_description_text_view">Time(s) per week</string>
+    <string name="days_description_text_view">Day(s) per week</string>
     <string name="weeks_description_text_view">Week(s) per month</string>
     <string name="starting_balance_hint">0.61</string>
     <string name="calculate_button_text_view">Calculate!</string>
     <string name="dollar_sign">$</string>
     <string name="total_text_view">Total: $0.00</string>
+    <string name="one_day_hint_textview">(Enter 1 Day and 1 Week if you just want 1 Day)</string>
+    <string name="savings_textview">Savings</string>
+    <string name="regular_saving_label_textview">Regular:</string>
+    <string name="weekly_saving_label_textview">Weekly:</string>
+    <string name="monthly_saving_label_textview">Monthly:</string>
 </resources>

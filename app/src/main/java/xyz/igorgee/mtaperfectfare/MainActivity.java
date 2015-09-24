@@ -16,11 +16,10 @@ public class MainActivity extends AppCompatActivity {
     public static final double BONUS_VALUE = 1.11;
     public static final double FARE = 2.75;
 
-    EditText trips;
-    EditText days;
-    EditText weeks;
-    EditText startingBalanceEdit;
-    TextView totalTextView;
+    EditText trips, days, weeks, startingBalanceEdit;
+    TextView totalTextView, regularSavingsTextView, weeklySavingsTextView, monthlySavingsTextView;
+
+    DecimalFormat df = new DecimalFormat("###.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         weeks = (EditText) findViewById(R.id.weeks);
         startingBalanceEdit = (EditText) findViewById(R.id.starting_balance);
         totalTextView = (TextView) findViewById(R.id.total_text_view);
+        regularSavingsTextView = (TextView) findViewById(R.id.regular_savings_textview);
+        weeklySavingsTextView = (TextView) findViewById(R.id.weekly_savings_textview);
+        monthlySavingsTextView = (TextView) findViewById(R.id.monthly_savings_textview);
     }
 
     public void displayTotal(View view) {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             int numberOfWeeks = Integer.parseInt(weeks.getText().toString());
             int numberOfTrips = Integer.parseInt(trips.getText().toString());
             double amountInCard = Double.parseDouble(startingBalanceEdit.getText().toString());
+
 
             if (!areValidNumbers(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard)) {
                 Toast.makeText(this, "Please enter valid numbers.", Toast.LENGTH_LONG).show();
@@ -51,11 +54,22 @@ public class MainActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 } else if (totalAmount >= 116.5 && numberOfWeeks == 4) {
                     totalTextView.setText("Buy a Monthly Metrocard");
+                    displaySavings(regularSavingsTextView, weeklySavingsTextView,
+                            totalAmount, 31 * numberOfWeeks, 116.5);
                 } else if (totalAmount/numberOfWeeks >= 31){
                     totalTextView.setText("Buy a Weekly Metrocard\n" + numberOfWeeks + " Time(s)");
-                } else {
-                    DecimalFormat df = new DecimalFormat("#.00");
+                    displaySavings(regularSavingsTextView, monthlySavingsTextView,
+                            totalAmount, 116.5, 31 * numberOfWeeks);
+                } else if (totalAmount > 81){
+                    double weekAmount = calculateTotal(numberOfDays, 1, numberOfTrips, amountInCard);
+                    totalTextView.setText("Every Week, Buy a\n$" + df.format(weekAmount)
+                    + " Metrocard");
+                    displaySavings(weeklySavingsTextView, monthlySavingsTextView,
+                            31 * numberOfWeeks, 116.5, totalAmount);
+                } else{
                     totalTextView.setText("Total: $" + df.format(totalAmount));
+                    displaySavings(weeklySavingsTextView, monthlySavingsTextView,
+                            31 * numberOfWeeks, 116.5, totalAmount);
                 }
             }
         } catch (NumberFormatException n) {
@@ -96,6 +110,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return pennies / 100.0;
+    }
+
+    private void displaySavings(TextView savingsView1, TextView savingsView2,
+                                double savingOriginal1, double savingOriginal2, double actual){
+
+        regularSavingsTextView.setText("");
+        weeklySavingsTextView.setText("");
+        monthlySavingsTextView.setText("");
+
+        double saving1 = savingOriginal1 - actual;
+        double saving2 = savingOriginal2 - actual;
+        savingsView1.setText(" $" + df.format(saving1));
+        savingsView2.setText(" $" + df.format(saving2));
     }
 
     @Override

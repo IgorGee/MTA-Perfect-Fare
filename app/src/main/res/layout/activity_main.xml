@@ -38,7 +38,8 @@
                     android:ems="2"
                     android:gravity="center"
                     android:hint="@string/trips_hint"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:maxLength="4" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -68,7 +69,8 @@
                     android:ems="2"
                     android:gravity="center"
                     android:hint="@string/days_hint"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:maxLength="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,7 +100,8 @@
                     android:ems="2"
                     android:gravity="center"
                     android:hint="@string/weeks_hint"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:maxLength="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,6 +111,13 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/one_day_hint_textview"
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -140,6 +150,7 @@
                     android:gravity="center"
                     android:hint="@string/starting_balance_hint"
                     android:inputType="numberDecimal"
+                    android:maxLength="5"
                     android:textSize="30sp" />
 
             </LinearLayout>
@@ -160,10 +171,76 @@
                 android:text="@string/total_text_view"
                 android:textSize="30sp" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
             <TextView
-                android:id="@+id/stats"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/savings_textview"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="@string/regular_saving_label_textview" />
+
+                <TextView
+                    android:id="@+id/regular_savings_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="@string/weekly_saving_label_textview" />
+
+                <TextView
+                    android:id="@+id/weekly_savings_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:text="@string/monthly_saving_label_textview" />
+
+                <TextView
+                    android:id="@+id/monthly_savings_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
