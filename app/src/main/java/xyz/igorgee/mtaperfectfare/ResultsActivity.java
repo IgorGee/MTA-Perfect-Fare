@@ -39,44 +39,30 @@ public class ResultsActivity extends AppCompatActivity {
         int numberOfWeeks = results.getIntExtra(MainActivity.EXTRA_WEEKS, 0);
         double amountInCard = results.getDoubleExtra(MainActivity.EXTRA_AMOUNT_IN_CARD, 0);
 
-        double totalAmount = calculateTotal(numberOfDays, numberOfWeeks, numberOfTrips,
-                amountInCard);
+        double totalAmount = calculateTotal(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard);
         if (totalAmount <= 0) {
-            Toast.makeText(this, "Silly, you already have money!",
-                    Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Silly, you already have money!", Toast.LENGTH_LONG).show();
         } else if (totalAmount >= 116.5 && numberOfWeeks == 4) {
             totalTextView.setText(R.string.buy_monthly_metrocard);
-            displaySavings(regularSavingsTextView, weeklySavingsTextView,
-                    totalAmount, 31 * numberOfWeeks, 116.5);
+            displaySavings(regularSavingsTextView, weeklySavingsTextView, totalAmount, 31 * numberOfWeeks, 116.5);
         } else if (totalAmount/numberOfWeeks >= 31){
-            totalTextView.setText(String.format("%s%d %s",
-                    getString(R.string.buy_weekly_metrocard),
-                    numberOfWeeks,
+            totalTextView.setText(String.format("%s%d %s", getString(R.string.buy_weekly_metrocard), numberOfWeeks,
                     getString(R.string.time_s)));
-            displaySavings(regularSavingsTextView, monthlySavingsTextView,
-                    totalAmount, 116.5, 31 * numberOfWeeks);
+            displaySavings(regularSavingsTextView, monthlySavingsTextView, totalAmount, 116.5, 31 * numberOfWeeks);
         } else if (totalAmount > 81){
             double weekAmount = calculateTotal(numberOfDays, 1, numberOfTrips, amountInCard);
-            totalTextView.setText(String.format("%s%s %s",
-                    getString(R.string.buy_specific_weekly),
-                    df.format(weekAmount),
-                    getString(R.string.metrocard)));
-            displaySavings(weeklySavingsTextView, monthlySavingsTextView,
-                    31 * numberOfWeeks, 116.5, totalAmount);
+            totalTextView.setText(String.format("%s%s %s", getString(R.string.buy_specific_weekly),
+                    df.format(weekAmount),getString(R.string.metrocard)));
+            displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         } else{
-            totalTextView.setText(String.format("%s%s",
-                    getString(R.string.total_text_view),
-                    df.format(totalAmount)));
-            displaySavings(weeklySavingsTextView, monthlySavingsTextView,
-                    31 * numberOfWeeks, 116.5, totalAmount);
+            totalTextView.setText(String.format("%s%s", getString(R.string.total_text_view), df.format(totalAmount)));
+            displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         }
     }
 
-    private double calculateTotal(int numberOfDays, int numberOfWeeks, int numberOfTrips,
-                                  double amountInCard) {
-        numberOfTrips *= numberOfDays * numberOfWeeks;
-
+    private double calculateTotal(int numberOfDays, int numberOfWeeks, int numberOfTrips, double amountInCard) {
         double totalAmount;
+        numberOfTrips *= numberOfDays * numberOfWeeks;
 
         if ((FARE * numberOfTrips - amountInCard) / BONUS_VALUE >= 5.50) {
             totalAmount = ((FARE * numberOfTrips - amountInCard) / BONUS_VALUE);
@@ -93,25 +79,19 @@ public class ResultsActivity extends AppCompatActivity {
         } else if (nickelDifference > 0) {
             pennies += 5 - nickelDifference;
         }
-
         return pennies / 100.0;
     }
 
-    private void displaySavings(TextView savingsView1, TextView savingsView2,
-                                double savingOriginal1, double savingOriginal2, double actual){
-
+    private void displaySavings(TextView savingsView1, TextView savingsView2, double savingOriginal1,
+                                double savingOriginal2, double actual){
         regularSavingsTextView.setText("");
         weeklySavingsTextView.setText("");
         monthlySavingsTextView.setText("");
 
         double saving1 = savingOriginal1 - actual;
         double saving2 = savingOriginal2 - actual;
-        savingsView1.setText(String.format(" %s%s",
-                getString(R.string.dollar_sign),
-                df.format(saving1)));
-        savingsView2.setText(String.format(" %s%s",
-                getString(R.string.dollar_sign),
-                df.format(saving2)));
+        savingsView1.setText(String.format(" %s%s", getString(R.string.dollar_sign), df.format(saving1)));
+        savingsView2.setText(String.format(" %s%s", getString(R.string.dollar_sign), df.format(saving2)));
     }
 
 }

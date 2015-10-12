@@ -50,11 +50,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean areValidNumbers(int numberOfDays, int numberOfWeeks, int numberOfTrips,
-                                    double amountInCard) {
+    private boolean areValidNumbers(int numberOfDays, int numberOfWeeks, int numberOfTrips, double amountInCard) {
         boolean result = true;
-        if (numberOfDays < 1 || numberOfDays > 7 || numberOfWeeks < 1 ||
-                numberOfWeeks > 4 || numberOfTrips < 1 || amountInCard < 0) {
+        if (numberOfDays < 1 || numberOfDays > 7 || numberOfWeeks < 1 || numberOfWeeks > 4 || numberOfTrips < 1 ||
+                amountInCard < 0) {
             result = false;
         }
         return result;
