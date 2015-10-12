@@ -52,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean areValidNumbers(int numberOfDays, int numberOfWeeks, int numberOfTrips,
                                     double amountInCard) {
+        boolean result = true;
         if (numberOfDays < 1 || numberOfDays > 7 || numberOfWeeks < 1 ||
                 numberOfWeeks > 4 || numberOfTrips < 1 || amountInCard < 0) {
-            return false;
-        } else {
-            return true;
+            result = false;
         }
+        return result;
     }
 
     @Override
