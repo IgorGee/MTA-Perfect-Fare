@@ -3,6 +3,7 @@ package xyz.igorgee.mtaperfectfare;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +15,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     DecimalFormat df = new DecimalFormat("###.00");
 
-    TextView totalTextView, regularSavingsTextView, weeklySavingsTextView, monthlySavingsTextView;
+    TextView costTextView, regularSavingsTextView, weeklySavingsTextView, monthlySavingsTextView;
 
     Intent results;
 
@@ -25,7 +26,7 @@ public class ResultsActivity extends AppCompatActivity {
 
         results = getIntent();
 
-        totalTextView = (TextView) findViewById(R.id.total_text_view);
+        costTextView = (TextView) findViewById(R.id.cost_text_view);
         regularSavingsTextView = (TextView) findViewById(R.id.regular_savings_textview);
         weeklySavingsTextView = (TextView) findViewById(R.id.weekly_savings_textview);
         monthlySavingsTextView = (TextView) findViewById(R.id.monthly_savings_textview);
@@ -43,19 +44,23 @@ public class ResultsActivity extends AppCompatActivity {
         if (totalAmount <= 0) {
             Toast.makeText(this, "Silly, you already have money!", Toast.LENGTH_LONG).show();
         } else if (totalAmount >= 116.5 && numberOfWeeks == 4) {
-            totalTextView.setText(R.string.buy_monthly_metrocard);
+            costTextView.setText(Html.fromHtml(String.format("<font color='#D50000'>%s%s<br/></font>%s",
+                    getString(R.string.dollar_sign), df.format(116.5), getString(R.string.buy_monthly_metrocard))));
             displaySavings(regularSavingsTextView, weeklySavingsTextView, totalAmount, 31 * numberOfWeeks, 116.5);
         } else if (totalAmount/numberOfWeeks >= 31){
-            totalTextView.setText(String.format("%s%d %s", getString(R.string.buy_weekly_metrocard), numberOfWeeks,
-                    getString(R.string.time_s)));
+            costTextView.setText(Html.fromHtml(String.format("<font color='#D50000'>%d x %s%s<br/></font>%s %d %s",
+                    numberOfWeeks, getString(R.string.dollar_sign), df.format(31),
+                    getString(R.string.buy_weekly_metrocard), numberOfWeeks, getString(R.string.time_s))));
             displaySavings(regularSavingsTextView, monthlySavingsTextView, totalAmount, 116.5, 31 * numberOfWeeks);
         } else if (totalAmount > 81){
             double weekAmount = calculateTotal(numberOfDays, 1, numberOfTrips, amountInCard);
-            totalTextView.setText(String.format("%s%s %s", getString(R.string.buy_specific_weekly),
-                    df.format(weekAmount),getString(R.string.metrocard)));
+            costTextView.setText(Html.fromHtml(String.format("%s<font color='#D50000'>%s%s</font> %s",
+                    getString(R.string.buy_specific_weekly), getString(R.string.dollar_sign),
+                            df.format(weekAmount), getString(R.string.metrocard))));
             displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         } else{
-            totalTextView.setText(String.format("%s%s", getString(R.string.total_text_view), df.format(totalAmount)));
+            costTextView.setText(Html.fromHtml(String.format("<font color='#D50000'>%s%s</font>",
+                    getString(R.string.dollar_sign), df.format(totalAmount))));
             displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         }
     }

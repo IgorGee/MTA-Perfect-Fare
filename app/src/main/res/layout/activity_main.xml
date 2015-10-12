@@ -27,6 +27,7 @@
                     android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:text="@string/number_trips_text_view"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
 
                 <EditText
@@ -38,13 +39,15 @@
                     android:ems="2"
                     android:gravity="center"
                     android:hint="@string/trips_hint"
+                    android:textColorHint="#BDBDBD"
                     android:inputType="numberDecimal"
                     android:maxLength="4" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/trips_description_text_view" />
+                    android:text="@string/trips_description_text_view"
+                    android:textColor="#000000"/>
 
             </LinearLayout>
 
@@ -58,6 +61,7 @@
                     android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:text="@string/number_days_text_view"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
 
                 <EditText
@@ -68,6 +72,7 @@
                     android:layout_marginStart="16dp"
                     android:ems="2"
                     android:gravity="center"
+                    android:textColorHint="#BDBDBD"
                     android:hint="@string/days_hint"
                     android:inputType="numberDecimal"
                     android:maxLength="1" />
@@ -75,7 +80,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/days_description_text_view" />
+                    android:text="@string/days_description_text_view"
+                    android:textColor="#000000"/>
 
             </LinearLayout>
 
@@ -89,6 +95,7 @@
                     android:layout_width="75dp"
                     android:layout_height="wrap_content"
                     android:text="@string/number_weeks_text_view"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
 
                 <EditText
@@ -100,13 +107,15 @@
                     android:ems="2"
                     android:gravity="center"
                     android:hint="@string/weeks_hint"
+                    android:textColorHint="#BDBDBD"
                     android:inputType="numberDecimal"
                     android:maxLength="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/weeks_description_text_view" />
+                    android:text="@string/weeks_description_text_view"
+                    android:textColor="#000000"/>
 
             </LinearLayout>
 
@@ -117,6 +126,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/one_day_hint_textview"
+            android:textColor="#000000"
             android:textSize="12sp" />
 
         <LinearLayout
@@ -130,6 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/starting_balance_text_view"
+                android:textColor="#000000"
                 android:textSize="30sp" />
 
             <LinearLayout
@@ -141,7 +152,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dollar_sign"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:textColor="#000000"/>
 
                 <EditText
                     android:id="@+id/starting_balance"
@@ -149,6 +161,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:hint="@string/starting_balance_hint"
+                    android:textColor="#000000"
+                    android:textColorHint="#BDBDBD"
                     android:inputType="numberDecimal"
                     android:maxLength="5"
                     android:textSize="30sp" />
@@ -169,7 +183,8 @@
             android:id="@+id/calculate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4CAF50"
+            android:background="#01579B"
+            android:textColor="#FFFFFF"
             android:onClick="displayTotal"
             android:text="@string/calculate_button_text_view"
             android:textAllCaps="false" />
