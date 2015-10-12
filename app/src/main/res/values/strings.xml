@@ -15,11 +15,17 @@
     <string name="starting_balance_hint">0.61</string>
     <string name="calculate_button_text_view">Calculate!</string>
     <string name="dollar_sign">$</string>
-    <string name="total_text_view">Total: $0.00</string>
+    <string name="zero_total_text_view">Total: $0.00</string>
     <string name="one_day_hint_textview">(Enter 1 Day and 1 Week if you just want 1 Day)</string>
     <string name="savings_textview">Savings</string>
     <string name="regular_saving_label_textview">Regular:</string>
     <string name="weekly_saving_label_textview">Weekly:</string>
     <string name="monthly_saving_label_textview">Monthly:</string>
     <string name="title_activity_results">ResultsActivity</string>
+    <string name="buy_monthly_metrocard">Buy a Monthly Metrocard</string>
+    <string name="buy_weekly_metrocard">Buy a Weekly Metrocard\n</string>
+    <string name="time_s">Time(s)</string>
+    <string name="buy_specific_weekly">Every Week, Buy a\n$</string>
+    <string name="metrocard">Metrocard</string>
+    <string name="total_text_view">Total: $</string>
 </resources>
