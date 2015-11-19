@@ -9,23 +9,25 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
-    public final static String EXTRA_TRIPS = "xyz.igorgee.mtaperfectfare.TRIPS";
-    public final static String EXTRA_DAYS = "xyz.igorgee.mtaperfectfare.DAYS";
-    public final static String EXTRA_WEEKS = "xyz.igorgee.mtaperfectfare.WEEKS";
-    public final static String EXTRA_AMOUNT_IN_CARD = "xyz.igorgee.mtaperfectfare.AMOUNT_IN_CARD";
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
-    EditText trips, days, weeks, startingBalanceEdit;
+public class MainActivity extends AppCompatActivity {
+    public static final String EXTRA_TRIPS = "xyz.igorgee.mtaperfectfare.TRIPS";
+    public static final String EXTRA_DAYS = "xyz.igorgee.mtaperfectfare.DAYS";
+    public static final String EXTRA_WEEKS = "xyz.igorgee.mtaperfectfare.WEEKS";
+    public static final String EXTRA_AMOUNT_IN_CARD = "xyz.igorgee.mtaperfectfare.AMOUNT_IN_CARD";
+
+    @Bind(R.id.trips) EditText trips;
+    @Bind(R.id.days) EditText days;
+    @Bind(R.id.weeks) EditText weeks;
+    @Bind(R.id.starting_balance) EditText startingBalanceEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        trips = (EditText) findViewById(R.id.trips);
-        days = (EditText) findViewById(R.id.days);
-        weeks = (EditText) findViewById(R.id.weeks);
-        startingBalanceEdit = (EditText) findViewById(R.id.starting_balance);
+        ButterKnife.bind(this);
     }
 
     public void displayTotal(View view) {

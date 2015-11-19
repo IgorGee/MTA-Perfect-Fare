@@ -9,13 +9,19 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class ResultsActivity extends AppCompatActivity {
     public static final double BONUS_VALUE = 1.11;
     public static final double FARE = 2.75;
 
     DecimalFormat df = new DecimalFormat("###.00");
 
-    TextView costTextView, regularSavingsTextView, weeklySavingsTextView, monthlySavingsTextView;
+    @Bind(R.id.cost_text_view) TextView costTextView;
+    @Bind(R.id.regular_savings_textview) TextView regularSavingsTextView;
+    @Bind(R.id.weekly_savings_textview) TextView weeklySavingsTextView;
+    @Bind(R.id.monthly_savings_textview) TextView monthlySavingsTextView;
 
     Intent results;
 
@@ -23,14 +29,9 @@ public class ResultsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
+        ButterKnife.bind(this);
 
         results = getIntent();
-
-        costTextView = (TextView) findViewById(R.id.cost_text_view);
-        regularSavingsTextView = (TextView) findViewById(R.id.regular_savings_textview);
-        weeklySavingsTextView = (TextView) findViewById(R.id.weekly_savings_textview);
-        monthlySavingsTextView = (TextView) findViewById(R.id.monthly_savings_textview);
-
         displayTotal();
     }
 
