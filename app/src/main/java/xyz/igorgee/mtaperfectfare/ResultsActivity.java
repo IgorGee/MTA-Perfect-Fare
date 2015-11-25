@@ -2,21 +2,35 @@ package xyz.igorgee.mtaperfectfare;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ResultsActivity extends AppCompatActivity {
+public class ResultsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final double BONUS_VALUE = 1.11;
     public static final double FARE = 2.75;
 
     DecimalFormat df = new DecimalFormat("###.00");
+
+    @Bind(R.id.drawerLayout) DrawerLayout drawerLayout;
+    @Bind(R.id.rootLayout) CoordinatorLayout rootLayout;
+    @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.navigation) NavigationView navigation;
+    ActionBarDrawerToggle drawerToggle;
 
     @Bind(R.id.cost_text_view) TextView costTextView;
     @Bind(R.id.regular_savings_textview) TextView regularSavingsTextView;
@@ -30,9 +44,24 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         ButterKnife.bind(this);
+        initializeInstances();
 
         results = getIntent();
         displayTotal();
+    }
+
+    private void initializeInstances() {
+        setSupportActionBar(toolbar);
+        drawerToggle = new ActionBarDrawerToggle(ResultsActivity.this, drawerLayout,
+                R.string.drawer_open_desc, R.string.drawer_close_desc);
+        drawerLayout.setDrawerListener(drawerToggle);
+        navigation.setNavigationItemSelectedListener(this);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(getString(R.string.activity_results_title));
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     public void displayTotal() {
@@ -43,30 +72,35 @@ public class ResultsActivity extends AppCompatActivity {
 
         double totalAmount = calculateTotal(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard);
         if (totalAmount <= 0) {
-            Toast.makeText(this, "Silly, you already have money!", Toast.LENGTH_LONG).show();
+            Snackbar.make(rootLayout, "Silly, you already have money!", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Silly me!", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {}
+                    })
+                    .show();
         } else if (totalAmount >= 116.5 && numberOfWeeks == 4) {
             costTextView.setText(Html.fromHtml(String.format("<font color='#D50000'>%s%s<br/></font>%s",
                     getString(R.string.dollar_sign), df.format(116.5), getString(R.string.buy_monthly_metrocard))));
             displaySavings(regularSavingsTextView, weeklySavingsTextView, totalAmount, 31 * numberOfWeeks, 116.5);
-        } else if (totalAmount/numberOfWeeks >= 31){
+        } else if (totalAmount / numberOfWeeks >= 31) {
             costTextView.setText(Html.fromHtml(String.format("<font color='#D50000'>%d x %s%s<br/></font>%s %d %s",
                     numberOfWeeks, getString(R.string.dollar_sign), df.format(31),
                     getString(R.string.buy_weekly_metrocard), numberOfWeeks, getString(R.string.time_s))));
             displaySavings(regularSavingsTextView, monthlySavingsTextView, totalAmount, 116.5, 31 * numberOfWeeks);
-        } else if (totalAmount > 81){
+        } else if (totalAmount > 81) {
             double weekAmount = calculateTotal(numberOfDays, 1, numberOfTrips, amountInCard);
             costTextView.setText(Html.fromHtml(String.format("%s<font color='#D50000'>%s%s</font> %s",
                     getString(R.string.buy_specific_weekly), getString(R.string.dollar_sign),
-                            df.format(weekAmount), getString(R.string.metrocard))));
+                    df.format(weekAmount), getString(R.string.metrocard))));
             displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
-        } else{
+        } else {
             costTextView.setText(Html.fromHtml(String.format("<font color='#D50000'>%s%s</font>",
                     getString(R.string.dollar_sign), df.format(totalAmount))));
             displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         }
     }
 
-    private double calculateTotal(int numberOfDays, int numberOfWeeks, int numberOfTrips, double amountInCard) {
+    public double calculateTotal(int numberOfDays, int numberOfWeeks, int numberOfTrips, double amountInCard) {
         double totalAmount;
         numberOfTrips *= numberOfDays * numberOfWeeks;
 
@@ -89,7 +123,7 @@ public class ResultsActivity extends AppCompatActivity {
     }
 
     private void displaySavings(TextView savingsView1, TextView savingsView2, double savingOriginal1,
-                                double savingOriginal2, double actual){
+                                double savingOriginal2, double actual) {
         regularSavingsTextView.setText("");
         weeklySavingsTextView.setText("");
         monthlySavingsTextView.setText("");
@@ -100,4 +134,43 @@ public class ResultsActivity extends AppCompatActivity {
         savingsView2.setText(String.format(" %s%s", getString(R.string.dollar_sign), df.format(saving2)));
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.menu_about:
+                Snackbar.make(rootLayout, "Clicked About!", Snackbar.LENGTH_INDEFINITE).show();
+                return true;
+            case R.id.menu_contact:
+                Snackbar.make(rootLayout, "Clicked Contact!", Snackbar.LENGTH_INDEFINITE).show();
+                return true;
+            case android.R.id.home:
+                this.finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        switch (id) {
+            case R.id.navAbout:
+                Snackbar.make(rootLayout, "Clicked About!", Snackbar.LENGTH_INDEFINITE).show();
+                break;
+            case R.id.navContact:
+                Snackbar.make(rootLayout, "Clicked Contact!", Snackbar.LENGTH_INDEFINITE).show();
+                break;
+        }
+
+        return false;
+    }
 }
