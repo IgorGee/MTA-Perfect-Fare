@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MTA Perfecto Tarifa</string>
+
+    <string name="menu_about">Información</string>
+    <string name="menu_contact">Contacto</string>
+    <string name="dollar_sign">$</string>
+    <string name="total_text_view">Total</string>
+    <string name="savings_textview">Ahorro</string>
+    <string name="regular_saving_label_textview">Regular:</string>
+    <string name="weekly_saving_label_textview">Semanal:</string>
+    <string name="monthly_saving_label_textview">Mensual:</string>
+    <string name="buy_monthly_metrocard">Compre una Metrocard mensual</string>
+    <string name="buy_weekly_metrocard">Compre una Metrocard semanal</string>
+    <string name="time_s">Vez(ces)</string>
+    <string name="buy_specific_weekly">Cada semana, comprar una\n</string>
+    <string name="metrocard">Metrocard</string>
+    <string name="drawer_open_desc">open</string>
+    <string name="drawer_close_desc">close</string>
+    <string name="if_savings"><u>Si usted compró</u></string>
+    <string name="if_savings_results"><u>Te pierdes</u></string>
+    <string name="starting_balance_text_view">El Saldo de Comenzado</string>
+    <string name="starting_balance_hint">¿Cuánto dinero hay en su tarjeta?</string>
+    <string name="swipes_text_view">Golpe de Tarjeta</string>
+    <string name="swipes_hint">¿Cuántos golpes por día?</string>
+    <string name="days_hint">¿Cuántos días de viaje por semana?</string>
+    <string name="days_text_view">Días</string>
+    <string name="weeks_text_view">Semanas</string>
+    <string name="weeks_hint">¿Cuántas semanas de viaje por mes?</string>
+    <string name="navbar_image_content_description">Navigation Bar background image</string>
+    <string name="activity_results_title">Resultados</string>
+</resources>

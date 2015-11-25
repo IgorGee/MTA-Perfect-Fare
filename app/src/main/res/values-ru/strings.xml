@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MTA Отлично Цена</string>
+
+    <string name="menu_about">Информация</string>
+    <string name="menu_contact">контакт</string>
+    <string name="dollar_sign">$</string>
+    <string name="total_text_view">Итого</string>
+    <string name="savings_textview">экономия</string>
+    <string name="regular_saving_label_textview">регулярный:</string>
+    <string name="weekly_saving_label_textview">еженедельно:</string>
+    <string name="monthly_saving_label_textview">ежемесячно:</string>
+    <string name="buy_monthly_metrocard">Купи Ежемесячная Metrocard</string>
+    <string name="buy_weekly_metrocard">Купи Еженедельный Metrocard</string>
+    <string name="time_s">Pаз(a)</string>
+    <string name="buy_specific_weekly">Каждую неделю, купи\n</string>
+    <string name="metrocard">Metrocard</string>
+    <string name="drawer_open_desc">open</string>
+    <string name="drawer_close_desc">close</string>
+    <string name="if_savings"><u>Если вы купили</u></string>
+    <string name="if_savings_results"><u>Вы потеряете</u></string>
+    <string name="starting_balance_text_view">Начиная Баланс</string>
+    <string name="starting_balance_hint">Сколько денег в вашей карты?</string>
+    <string name="swipes_text_view">пойло</string>
+    <string name="swipes_hint">Сколько пойло в день?</string>
+    <string name="days_hint">Сколько дней путешествия за неделю?</string>
+    <string name="days_text_view">дней</string>
+    <string name="weeks_text_view">Недели</string>
+    <string name="weeks_hint">Сколько недель путешествия в месяц?</string>
+    <string name="navbar_image_content_description">Navigation Bar background image</string>
+    <string name="activity_results_title">Результаты</string>
+</resources>

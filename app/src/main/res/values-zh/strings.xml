@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">MTA 完善 票价</string>
+
+    <string name="menu_about">信息</string>
+    <string name="menu_contact">联系</string>
+    <string name="dollar_sign">$</string>
+    <string name="total_text_view">总</string>
+    <string name="savings_textview">储</string>
+    <string name="regular_saving_label_textview">定期:</string>
+    <string name="weekly_saving_label_textview">每周:</string>
+    <string name="monthly_saving_label_textview">每月一次:</string>
+    <string name="buy_monthly_metrocard">购买每月捷运卡</string>
+    <string name="buy_weekly_metrocard">买周刊捷运卡</string>
+    <string name="time_s">时报</string>
+    <string name="buy_specific_weekly">每个星期，买\n</string>
+    <string name="metrocard">Metrocard</string>
+    <string name="drawer_open_desc">open</string>
+    <string name="drawer_close_desc">close</string>
+    <string name="if_savings"><u>如果你买</u></string>
+    <string name="if_savings_results"><u>你会失去</u></string>
+    <string name="starting_balance_text_view">起始余额</string>
+    <string name="starting_balance_hint">多少钱是在你的卡？</string>
+    <string name="swipes_text_view">刷卡</string>
+    <string name="swipes_hint">有多少卡每天刷卡？</string>
+    <string name="days_hint">多少每星期的旅行天？</string>
+    <string name="days_text_view">天</string>
+    <string name="weeks_text_view">周</string>
+    <string name="weeks_hint">有多少个星期，每月的旅行？</string>
+    <string name="navbar_image_content_description">Navigation Bar background image</string>
+    <string name="activity_results_title">结果</string>
+</resources>
