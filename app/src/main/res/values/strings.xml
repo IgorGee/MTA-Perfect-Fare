@@ -28,4 +28,14 @@
     <string name="weeks_hint">How many weeks of travel per month?</string>
     <string name="navbar_image_content_description">Navigation Bar background image</string>
     <string name="activity_results_title">Results</string>
+    <string name="app_purpose_question">Why does this app exist?</string>
+    <string name="app_purpose">The MTA makes it really difficult for frugal people to make smart metrocard
+        purchases. The arbitrary bonus value added onto your card frustrates many people as they now have an excess
+        amount of money stored in their card, money that could have been kept in their wallets.</string>
+    <string name="activity_about_title">About</string>
+    <string name="activity_contact_title">Contact</string>
+    <string name="contact_questions">Got an idea to improve this app?\nDon\'t like something?\nWant to hire me?</string>
+    <string name="email_developer">Email the developer</string>
+    <string name="about_me_question">Who are you?</string>
+    <string name="about_me">I\'m just an average broke college student trying to make commuting in my city easier and less stressful.</string>
 </resources>

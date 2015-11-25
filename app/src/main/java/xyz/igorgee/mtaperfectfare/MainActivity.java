@@ -112,10 +112,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (id) {
             case R.id.menu_about:
-                Snackbar.make(rootLayout, "Clicked About!", Snackbar.LENGTH_INDEFINITE).show();
+                startActivity(new Intent(this, AboutActivity.class));
                 return true;
             case R.id.menu_contact:
-                Snackbar.make(rootLayout, "Clicked Contact!", Snackbar.LENGTH_INDEFINITE).show();
+                startActivity(new Intent(this, ContactActivity.class));
                 return true;
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
@@ -130,10 +130,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (id) {
             case R.id.navAbout:
-                Snackbar.make(rootLayout, "Clicked About!", Snackbar.LENGTH_INDEFINITE).show();
+                startActivity(new Intent(this, AboutActivity.class));
                 break;
             case R.id.navContact:
-                Snackbar.make(rootLayout, "Clicked Contact!", Snackbar.LENGTH_INDEFINITE).show();
+                startActivity(new Intent(this, ContactActivity.class));
                 break;
         }
 

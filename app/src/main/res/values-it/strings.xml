@@ -28,4 +28,14 @@
     <string name="weeks_hint">Quante settimane di viaggio al mese?</string>
     <string name="navbar_image_content_description">Navigation Bar background image</string>
     <string name="activity_results_title">Risultati</string>
+    <string name="app_purpose_question">Perché esiste questa applicazione?</string>
+    <string name="app_purpose">Il MTA rende davvero difficile per le persone frugali a fare intelligente MetroCard
+         acquisti. Il valore del bonus arbitrario aggiunto sulla vostra carta di frustra più persone ora hanno un eccesso
+         quantità di denaro memorizzato nella loro carta, soldi che avrebbero potuto essere mantenuto nei loro portafogli.</string>
+    <string name="activity_about_title">Informazioni</string>
+    <string name="activity_contact_title">Contatto</string>
+    <string name="contact_questions">Hai un\'idea per migliorare questa applicazione?\nNon ti piace qualcosa?\nC\'è stata una cattiva traduzione?\nVuoi assumermi?</string>
+    <string name="email_developer">Email lo sviluppatore</string>
+    <string name="about_me_question">Chi sei?</string>
+    <string name="about_me">Sono solo uno studente universitario medio poveri cercando di fare il pendolarismo nella mia città facile e meno stressante.</string>
 </resources>

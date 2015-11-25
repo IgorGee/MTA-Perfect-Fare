@@ -28,4 +28,14 @@
     <string name="weeks_hint">有多少个星期，每月的旅行？</string>
     <string name="navbar_image_content_description">Navigation Bar background image</string>
     <string name="activity_results_title">结果</string>
+    <string name="app_purpose_question">为什么这个程序存在吗？</string>
+    <string name="app_purpose">该MTA使得它真的很难节俭的人们做出明智的捷运卡
+        购买。添加到您的卡中的任意奖金值挫伤很多人，因为他们现在有一个多余的
+        量存储在他们的信用卡的钱，本来可以保持自己的钱包的钱。</string>
+    <string name="activity_about_title">信息</string>
+    <string name="activity_contact_title">联系</string>
+    <string name="contact_questions">有一个想法，以改善这个程序？\n不喜欢的东西？\n是否有一个坏的翻译？\n想聘请我？</string>
+    <string name="email_developer">电子邮件开发商</string>
+    <string name="about_me_question">你是谁？</string>
+    <string name="about_me">我只是一个普通的破产大学生试图使上下班在我的城市更容易，更紧张。</string>
 </resources>
