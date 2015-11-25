@@ -14,6 +14,8 @@
     <string name="time_s">时报</string>
     <string name="buy_specific_weekly">每个星期，买\n</string>
     <string name="metrocard">Metrocard</string>
+    <string name="put">把</string>
+    <string name="into_your_card">10到你的卡</string>
     <string name="drawer_open_desc">open</string>
     <string name="drawer_close_desc">close</string>
     <string name="if_savings"><u>如果你买</u></string>

@@ -14,6 +14,8 @@
     <string name="time_s">Vez(ces)</string>
     <string name="buy_specific_weekly">Cada semana, comprar una\n</string>
     <string name="metrocard">Metrocard</string>
+    <string name="put">Ponga</string>
+    <string name="into_your_card">en su tarjeta.</string>
     <string name="drawer_open_desc">open</string>
     <string name="drawer_close_desc">close</string>
     <string name="if_savings"><u>Si usted compró</u></string>

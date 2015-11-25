@@ -14,6 +14,8 @@
     <string name="time_s">Volte</string>
     <string name="buy_specific_weekly">Ogni settimana, Acquistare una\n</string>
     <string name="metrocard">Metrocard</string>
+    <string name="put">Mettere</string>
+    <string name="into_your_card">nella scheda.</string>
     <string name="drawer_open_desc">open</string>
     <string name="drawer_close_desc">close</string>
     <string name="if_savings"><u>Se avete acquistato</u></string>

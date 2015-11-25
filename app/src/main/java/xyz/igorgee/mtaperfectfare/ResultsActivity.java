@@ -94,8 +94,9 @@ public class ResultsActivity extends AppCompatActivity implements NavigationView
                     df.format(weekAmount), getString(R.string.metrocard))));
             displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         } else {
-            costTextView.setText(Html.fromHtml(String.format("<font color='#D50000'>%s%s</font>",
-                    getString(R.string.dollar_sign), df.format(totalAmount))));
+            costTextView.setText(Html.fromHtml(String.format("%s <font color='#D50000'>%s%s</font> %s",
+                    getString(R.string.put), getString(R.string.dollar_sign), df.format(totalAmount),
+                    getString(R.string.into_your_card))));
             displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         }
     }
