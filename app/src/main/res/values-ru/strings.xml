@@ -36,7 +36,7 @@
          сумма хранится в их карты, деньги, которые можно было бы хранить в своих кошельках.</string>
     <string name="activity_about_title">Информация</string>
     <string name="activity_contact_title">контакт</string>
-    <string name="contact_questions">Есть идея, чтобы улучшить это приложение?\nНе нравится что-то?\nБыл ли плохой перевод?\nХотите, чтобы нанять меня?</string>
+    <string name="contact_questions">Есть идея, чтобы улучшить это приложение?\nНе нравится что-то?\nБыл ли плохой перевод?\nВопросов?</string>
     <string name="email_developer">е-мейл разработчику</string>
     <string name="about_me_question">Кто ты?</string>
     <string name="about_me">Я просто в среднем бедный студент колледжа пытается сделать коммутирующих в городе легче и менее напряженный.</string>

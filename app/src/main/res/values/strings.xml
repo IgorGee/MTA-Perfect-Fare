@@ -36,8 +36,10 @@
         amount of money stored in their card, money that could have been kept in their wallets.</string>
     <string name="activity_about_title">About</string>
     <string name="activity_contact_title">Contact</string>
-    <string name="contact_questions">Got an idea to improve this app?\nDon\'t like something?\nWant to hire me?</string>
+    <string name="contact_questions">Got an idea to improve this app?\nDon\'t like something?\nQuestions?</string>
     <string name="email_developer">Email the developer</string>
     <string name="about_me_question">Who are you?</string>
     <string name="about_me">I\'m just an average broke college student trying to make commuting in my city easier and less stressful.</string>
+    <string name="metrocard_info_question">Want to learn more about Metrocards?</string>
+    <string name="mta_website_button">Official MTA Website</string>
 </resources>
