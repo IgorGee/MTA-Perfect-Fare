@@ -4,10 +4,10 @@ import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-public class ResultsActivityTest {
+public class CalculatorTest {
 
     @Test
-    public void calcTest() {
+    public void assertsCorrectCalculation() {
         assertEquals(Calculator.calculateTotal(1, 1, 1, 0), 2.75);
         assertEquals(Calculator.calculateTotal(1, 1, 1, .01), 2.75);
         assertEquals(Calculator.calculateTotal(1, 1, 1, 1), 1.75);
