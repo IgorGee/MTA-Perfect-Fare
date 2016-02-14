@@ -1,20 +1,26 @@
 package xyz.igorgee.mtaperfectfare;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class AboutActivity extends AppCompatActivity {
 
     @Bind(R.id.drawerLayout) DrawerLayout drawerLayout;
     @Bind(R.id.toolbar) Toolbar toolbar;
     ActionBarDrawerToggle drawerToggle;
+
+    @Bind(R.id.mta_website_button) Button mtaWebsite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,12 @@ public class AboutActivity extends AppCompatActivity {
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    @OnClick(R.id.mta_website_button)
+    public void goToWebsite(View view) {
+        Intent intent = new Intent(this, WebsiteActivity.class);
+        startActivity(intent);
     }
 
     @Override

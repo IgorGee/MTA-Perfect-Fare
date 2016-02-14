@@ -68,6 +68,23 @@
                     android:layout_marginBottom="16dp"
                     android:text="@string/about_me"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20sp"
+                    android:text="@string/metrocard_info_question"/>
+
+                <Button
+                    android:id="@+id/mta_website_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:text="@string/mta_website_button"
+                    android:background="@color/accent"/>
+
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>
