@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/IgorGee/MTA-Perfect-Fare.svg?branch=master)](https://travis-ci.org/IgorGee/MTA-Perfect-Fare)
 ![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)
 ![Rating](https://img.shields.io/badge/Rating-4.0-green.svg)
 ![Downloads](https://img.shields.io/badge/Downloads-100--500-red.svg)
