@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             int numberOfWeeks = Integer.parseInt(weeks.getText().toString());
             double amountInCard = Double.parseDouble(startingBalanceEdit.getText().toString());
 
-            if (!areValidNumbers(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard)) {
+            if (!Calculator.areValidNumbers(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard)) {
                 Snackbar.make(rootLayout, "Please enter valid numbers.", Snackbar.LENGTH_LONG)
                         .setAction("Okay", new View.OnClickListener() {
                             @Override
@@ -89,15 +89,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         public void onClick(View v) {}
                     }).show();
         }
-    }
-
-    private boolean areValidNumbers(int numberOfDays, int numberOfWeeks, int numberOfTrips, double amountInCard) {
-        boolean result = true;
-        if (numberOfDays < 1 || numberOfDays > 7 || numberOfWeeks < 1 || numberOfWeeks > 4 || numberOfTrips < 1 ||
-                amountInCard < 0) {
-            result = false;
-        }
-        return result;
     }
 
     @Override

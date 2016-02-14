@@ -21,8 +21,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class ResultsActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    public static final double BONUS_VALUE = 1.11;
-    public static final double FARE = 2.75;
 
     DecimalFormat df = new DecimalFormat("###.00");
 
@@ -70,7 +68,7 @@ public class ResultsActivity extends AppCompatActivity implements NavigationView
         int numberOfWeeks = results.getIntExtra(MainActivity.EXTRA_WEEKS, 0);
         double amountInCard = results.getDoubleExtra(MainActivity.EXTRA_AMOUNT_IN_CARD, 0);
 
-        double totalAmount = calculateTotal(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard);
+        double totalAmount = Calculator.calculateTotal(numberOfDays, numberOfWeeks, numberOfTrips, amountInCard);
         if (totalAmount <= 0) {
             Snackbar.make(rootLayout, "Silly, you already have money!", Snackbar.LENGTH_INDEFINITE)
                     .setAction("Silly me!", new View.OnClickListener() {
@@ -88,7 +86,7 @@ public class ResultsActivity extends AppCompatActivity implements NavigationView
                     getString(R.string.buy_weekly_metrocard), numberOfWeeks, getString(R.string.time_s))));
             displaySavings(regularSavingsTextView, monthlySavingsTextView, totalAmount, 116.5, 31 * numberOfWeeks);
         } else if (totalAmount > 81) {
-            double weekAmount = calculateTotal(numberOfDays, 1, numberOfTrips, amountInCard);
+            double weekAmount = Calculator.calculateTotal(numberOfDays, 1, numberOfTrips, amountInCard);
             costTextView.setText(Html.fromHtml(String.format("%s<font color='#D50000'>%s%s</font> %s",
                     getString(R.string.buy_specific_weekly), getString(R.string.dollar_sign),
                     df.format(weekAmount), getString(R.string.metrocard))));
@@ -99,28 +97,6 @@ public class ResultsActivity extends AppCompatActivity implements NavigationView
                     getString(R.string.into_your_card))));
             displaySavings(weeklySavingsTextView, monthlySavingsTextView, 31 * numberOfWeeks, 116.5, totalAmount);
         }
-    }
-
-    public double calculateTotal(int numberOfDays, int numberOfWeeks, int numberOfTrips, double amountInCard) {
-        double totalAmount;
-        numberOfTrips *= numberOfDays * numberOfWeeks;
-
-        if ((FARE * numberOfTrips - amountInCard) / BONUS_VALUE >= 5.50) {
-            totalAmount = ((FARE * numberOfTrips - amountInCard) / BONUS_VALUE);
-        } else {
-            totalAmount = ((FARE * numberOfTrips - amountInCard));
-        }
-
-        // MTA Metrocard Vending Machine only allow payments in nickel increments
-        int pennies = (int) Math.round(totalAmount * 100);
-        int nickelDifference = pennies % 10 - 5;
-
-        if (nickelDifference < 0 && nickelDifference != -5) {
-            pennies += -nickelDifference;
-        } else if (nickelDifference > 0) {
-            pennies += 5 - nickelDifference;
-        }
-        return pennies / 100.0;
     }
 
     private void displaySavings(TextView savingsView1, TextView savingsView2, double savingOriginal1,
@@ -155,7 +131,6 @@ public class ResultsActivity extends AppCompatActivity implements NavigationView
             case android.R.id.home:
                 this.finish();
         }
-
         return super.onOptionsItemSelected(item);
     }
 
