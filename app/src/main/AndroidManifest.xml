@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="xyz.igorgee.mtaperfectfare"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest
+    package="xyz.igorgee.mtaperfectfare"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -32,6 +34,12 @@
         <activity android:name=".AboutActivity">
         </activity>
         <activity android:name=".ContactActivity">
+        </activity>
+        <activity
+            android:name=".WebsiteActivity"
+            android:label="MTA Metrocards"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 
